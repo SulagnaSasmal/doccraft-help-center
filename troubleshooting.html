@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Troubleshooting — DocCraft Help Center</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">DocCraft<span>·</span>Help</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="getting-started.html" class="nav-link">Getting Started</a>
+      <a href="troubleshooting.html" class="nav-link active">Troubleshooting</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://doccraft-ten.vercel.app/" target="_blank" class="btn btn-indigo btn-sm">Open DocCraft ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div style="max-width:var(--content-w);margin:0 auto;padding:3rem 2rem;">
+
+  <div class="breadcrumb">
+    <a href="index.html">Help Center</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Troubleshooting</span>
+  </div>
+
+  <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin:0.5rem 0 0.5rem;">Troubleshooting Guide</h1>
+  <p style="color:var(--text-3);margin-bottom:2rem;">Common issues and step-by-step solutions.</p>
+
+  <div class="callout callout-tip">
+    <div class="callout-title">Quick Diagnosis</div>
+    <p>Most generation issues fall into three categories: <strong>input quality</strong> (the source material lacks enough context), <strong>format mismatch</strong> (the selected doc type doesn't match the input), or <strong>temporary service issues</strong> (retry usually resolves these). Start with the relevant section below.</p>
+  </div>
+
+  <!-- Issue 1 -->
+  <div class="troubleshoot-card" style="margin-top:2rem;">
+    <div style="display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.75rem;">
+      <span class="badge badge-orange">Input</span>
+      <div class="troubleshoot-problem">My generated docs have incorrect or placeholder code examples</div>
+    </div>
+    <div class="troubleshoot-cause">Typically occurs when the source input (OpenAPI spec or code) has missing or generic descriptions, or when parameter types/examples are not defined in the spec.</div>
+    <div class="troubleshoot-steps">
+      <ol>
+        <li>Open your OpenAPI spec and check that each endpoint has a non-empty <code>description</code> field. Generic descriptions like "Endpoint for users" produce generic output.</li>
+        <li>Add <code>example</code> values to your request body properties in the spec — DocCraft uses these to populate code examples.</li>
+        <li>If using plain text input, explicitly include sample request/response JSON in your description. Example: <em>"The create user endpoint accepts: {name: 'Alice', email: 'alice@example.com', role: 'admin'}"</em></li>
+        <li>Regenerate the affected section(s) using the per-section Regenerate button with the instruction: <em>"Generate realistic code examples using the request body schema above."</em></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Issue 2 -->
+  <div class="troubleshoot-card">
+    <div style="display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.75rem;">
+      <span class="badge badge-orange">Input</span>
+      <div class="troubleshoot-problem">DocCraft isn't recognizing my API endpoints</div>
+    </div>
+    <div class="troubleshoot-cause">This usually means the uploaded OpenAPI spec has structural issues — missing <code>paths</code> object, incorrect YAML indentation, or a spec version DocCraft doesn't fully support.</div>
+    <div class="troubleshoot-steps">
+      <ol>
+        <li>Validate your spec using the <a href="https://editor.swagger.io" style="color:var(--indigo);">Swagger Editor</a> — paste your spec and check for red errors in the left pane.</li>
+        <li>Ensure your spec declares <code>openapi: 3.0.x</code> or <code>swagger: "2.0"</code> at the top. DocCraft supports OpenAPI 2.0 and 3.0. OpenAPI 3.1 support is partial.</li>
+        <li>Check that the <code>paths</code> key is present and each path starts with <code>/</code>. Missing leading slashes on paths cause silent failures.</li>
+        <li>If your spec is large (&gt;500 endpoints), try splitting it into smaller files and uploading one at a time.</li>
+        <li>If the issue persists after validation, try exporting a Postman collection from the same API and uploading the <code>.json</code> collection file instead.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Issue 3 -->
+  <div class="troubleshoot-card">
+    <div style="display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.75rem;">
+      <span class="badge badge-red">Integration</span>
+      <div class="troubleshoot-problem">Export to Confluence fails with "Authentication Error"</div>
+    </div>
+    <div class="troubleshoot-cause">The most common cause is an expired or incorrectly scoped Confluence API token, or an incorrect workspace URL format.</div>
+    <div class="troubleshoot-steps">
+      <ol>
+        <li>Go to <strong>Settings → Integrations → Confluence</strong> and verify your workspace URL is in the format <code>https://yourcompany.atlassian.net</code> — not <code>yourcompany.atlassian.net/wiki</code> or <code>yourcompany.confluence.com</code>.</li>
+        <li>Regenerate your Confluence API token at <code>id.atlassian.com → Security → API tokens → Create API Token</code>. Tokens can expire or be revoked by your Atlassian admin.</li>
+        <li>Confirm the account associated with the token has <strong>Space Admin</strong> or at minimum <strong>Add pages</strong> permission on the target Confluence Space.</li>
+        <li>Test your credentials: try the Atlassian REST API directly with <code>curl -u email:token https://yourcompany.atlassian.net/rest/api/content</code> — if this returns a 401, your credentials are incorrect.</li>
+        <li>After updating credentials in Settings, click <strong>Test Connection</strong> before attempting another export.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Issue 4 -->
+  <div class="troubleshoot-card">
+    <div style="display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.75rem;">
+      <span class="badge badge-orange">Quality</span>
+      <div class="troubleshoot-problem">Generated docs are too generic — missing specific details about my product</div>
+    </div>
+    <div class="troubleshoot-cause">DocCraft can only generate documentation based on what is in the source material. If your source lacks product-specific context, the output will be generic.</div>
+    <div class="troubleshoot-steps">
+      <ol>
+        <li>Add a <strong>product context blurb</strong> at the top of your input — 2-3 sentences describing what your product does, who uses it, and any key constraints. Example: <em>"PayAPI is a REST API for ACH payment processing targeting US fintech companies. It processes PPD, CCD, and WEB payments with T+1 settlement via the NACHA network."</em></li>
+        <li>Expand your OpenAPI spec descriptions — every endpoint, parameter, and response code should have a <code>description</code>. The richer the spec, the more specific the output.</li>
+        <li>Use <strong>Advanced Settings → Custom Instructions</strong> to provide style and audience guidance: <em>"Write for developers integrating the API for the first time. Use imperative mood. Include warning callouts for rate limiting."</em></li>
+        <li>After generation, use per-section Regenerate to enhance sparse sections individually.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Issue 5 -->
+  <div class="troubleshoot-card">
+    <div style="display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.75rem;">
+      <span class="badge badge-amber">Limits</span>
+      <div class="troubleshoot-problem">Rate limit exceeded — "Too many requests" error</div>
+    </div>
+    <div class="troubleshoot-cause">Free-tier accounts have generation rate limits in addition to monthly credit limits. Generating multiple documents in quick succession can trigger a short-term rate limit.</div>
+    <div class="troubleshoot-steps">
+      <ol>
+        <li>Wait 60 seconds and retry the generation. Short-term rate limits usually clear within a minute.</li>
+        <li>If you're in a batch workflow (generating many documents), add a minimum 30-second delay between requests.</li>
+        <li>Check your monthly credit balance in <strong>Account Settings → Usage</strong>. If you've exhausted monthly credits, you'll need to wait for the next reset or upgrade your plan.</li>
+        <li>For high-volume programmatic use, the DocCraft API (coming 2025) will include configurable rate limits appropriate for automation workflows.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Issue 6 -->
+  <div class="troubleshoot-card">
+    <div style="display:flex;gap:0.75rem;align-items:flex-start;margin-bottom:0.75rem;">
+      <span class="badge badge-red">Upload</span>
+      <div class="troubleshoot-problem">Cannot upload file — "File too large" error</div>
+    </div>
+    <div class="troubleshoot-cause">DocCraft accepts uploaded files up to <strong>5 MB</strong>. Large monorepo exports, full Postman workspaces, or bundled specs may exceed this limit.</div>
+    <div class="troubleshoot-steps">
+      <ol>
+        <li>Split your spec into smaller files. For large OpenAPI specs, separate by tag/domain and generate one documentation set per logical section.</li>
+        <li>For Postman collections, export individual collections rather than full workspace backups.</li>
+        <li>For code-based input, create a focused subset of files rather than exporting the entire repo. DocCraft performs best with 3-10 representative files rather than a full codebase.</li>
+        <li>For GitHub repos: paste only the repository URL instead of uploading a ZIP archive — URL ingestion does not have a file size constraint.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div style="background:var(--bg-tag);border-radius:var(--radius);padding:1.25rem;text-align:center;margin-top:1rem;">
+    <div style="font-size:0.875rem;color:var(--text-2);">Issue not listed here? Check the <a href="faq.html" style="color:var(--indigo);">FAQ</a> or open a support request from your DocCraft Dashboard → Help → Contact Support.</div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div><div class="footer-brand">DocCraft<span>·</span>Help</div><p class="footer-desc">Help center for DocCraft AI — built by Sulagna Sasmal.</p></div>
+    <div>
+      <div class="footer-col-title">Help Topics</div>
+      <ul class="footer-links">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="release-notes.html">Release Notes</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">DocCraft</div>
+      <ul class="footer-links">
+        <li><a href="https://doccraft-ten.vercel.app/" target="_blank">Open App ↗</a></li>
+        <li><a href="index.html">← Help Home</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copyright">© 2025 DocCraft AI — Portfolio project by Sulagna Sasmal</span></div>
+</footer>
+
+<script src="assets/js/search.js"></script>
+</body>
+</html>

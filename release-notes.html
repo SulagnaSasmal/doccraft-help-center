@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Notes — DocCraft AI</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">DocCraft<span>·</span>Help</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="getting-started.html" class="nav-link">Getting Started</a>
+      <a href="release-notes.html" class="nav-link active">What's New</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://doccraft-ten.vercel.app/" target="_blank" class="btn btn-indigo btn-sm">Open DocCraft ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div style="max-width:var(--content-w);margin:0 auto;padding:3rem 2rem;">
+
+  <div class="breadcrumb">
+    <a href="index.html">Help Center</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Release Notes</span>
+  </div>
+
+  <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin:0.5rem 0 2rem;">Release Notes</h1>
+
+  <!-- v1.4.0 -->
+  <div class="release-item">
+    <div class="release-meta">
+      <div class="release-version">v1.4.0</div>
+      <div class="release-date">Feb 10, 2025</div>
+      <div style="margin-top:0.5rem;"><span class="badge badge-indigo">Latest</span></div>
+    </div>
+    <div class="release-body">
+      <div class="release-section-title release-section-new">✨ New Features</div>
+      <ul>
+        <li><strong>Confluence Direct Export</strong> — Publish generated documents directly to any Confluence space using your API token. Supports Space selection, parent page selection, and update-in-place for existing pages.</li>
+        <li><strong>Per-Section Regeneration</strong> — Regenerate any individual section with custom instructions without affecting the rest of the document. Includes a free-text instruction field per section.</li>
+        <li><strong>Release Notes document type</strong> — New generation mode: input a git log, feature list, or changelog draft and DocCraft generates formatted, user-readable release notes.</li>
+        <li><strong>Code language selection</strong> — Choose which languages to include in API reference code examples. Node.js, Python, cURL, Go, Ruby, PHP, and Java supported.</li>
+      </ul>
+      <div class="release-section-title release-section-improved">⬆️ Improvements</div>
+      <ul>
+        <li>OpenAPI 3.0.3 support improved — <code>oneOf</code>, <code>anyOf</code>, and <code>allOf</code> schemas now generate more accurate parameter descriptions.</li>
+        <li>Generation speed improved by ~30% for specs under 100 endpoints.</li>
+        <li>Document editor: added full-screen mode toggle and section outline panel.</li>
+      </ul>
+      <div class="release-section-title release-section-fixed">🐛 Bug Fixes</div>
+      <ul>
+        <li>Fixed: Markdown export included raw HTML tags for some section types.</li>
+        <li>Fixed: GitHub URL ingestion failed silently for repos with no README at root.</li>
+        <li>Fixed: Generating a second document reset the editor scroll position on the first.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- v1.3.2 -->
+  <div class="release-item">
+    <div class="release-meta">
+      <div class="release-version">v1.3.2</div>
+      <div class="release-date">Jan 22, 2025</div>
+    </div>
+    <div class="release-body">
+      <div class="release-section-title release-section-fixed">🐛 Bug Fixes</div>
+      <ul>
+        <li>Fixed: Postman collection upload failed for collections exported from Postman v11+.</li>
+        <li>Fixed: PDF export cut off code blocks that extended beyond one page.</li>
+        <li>Fixed: Account creation email verification link expired after 10 minutes instead of the intended 24 hours.</li>
+        <li>Fixed: Custom instructions exceeding 500 characters caused a silent generation failure. Limit is now enforced with a visible character counter and clear error message.</li>
+      </ul>
+      <div class="release-section-title release-section-improved">⬆️ Improvements</div>
+      <ul>
+        <li>Improved error messages for all upload validation failures — now shows the specific file format issue rather than a generic error.</li>
+        <li>Dashboard load time reduced from ~2.1s to ~0.6s by switching from round-trip API calls to edge-cached document manifests.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- v1.3.0 -->
+  <div class="release-item">
+    <div class="release-meta">
+      <div class="release-version">v1.3.0</div>
+      <div class="release-date">Dec 15, 2024</div>
+    </div>
+    <div class="release-body">
+      <div class="release-section-title release-section-new">✨ New Features</div>
+      <ul>
+        <li><strong>Admin Guide document type</strong> — New template covering installation, configuration, environment variables, security, and maintenance procedures.</li>
+        <li><strong>Custom instructions field</strong> — Specify audience, tone, and special requirements before generation using the new Advanced Settings panel.</li>
+        <li><strong>Postman collection support</strong> — Upload Postman v2.1 collection JSON files as source input for API reference generation.</li>
+      </ul>
+      <div class="release-section-title release-section-improved">⬆️ Improvements</div>
+      <ul>
+        <li>Authentication guide section in API Reference now auto-detects auth type from OpenAPI <code>securitySchemes</code> (Bearer, API Key, OAuth2) and generates the appropriate section content.</li>
+        <li>Added progress indicator during generation showing estimated time remaining.</li>
+        <li>Template library expanded from 3 to 8 templates.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- v1.2.0 -->
+  <div class="release-item">
+    <div class="release-meta">
+      <div class="release-version">v1.2.0</div>
+      <div class="release-date">Nov 8, 2024</div>
+    </div>
+    <div class="release-body">
+      <div class="release-section-title release-section-new">✨ New Features</div>
+      <ul>
+        <li><strong>PDF export</strong> — Export any generated document as a print-quality PDF with embedded fonts and styling.</li>
+        <li><strong>GitHub repository URL ingestion</strong> — Paste any public GitHub repo URL as source input. DocCraft fetches README, source comments, and file structure.</li>
+        <li><strong>Document versioning</strong> — Each generation creates a version entry. You can view and restore previous versions from the document history panel.</li>
+      </ul>
+      <div class="release-section-title release-section-improved">⬆️ Improvements</div>
+      <ul>
+        <li>User Guide generation significantly improved for SaaS product descriptions — now produces more structured onboarding content rather than generic prose.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- v1.0.0 -->
+  <div class="release-item">
+    <div class="release-meta">
+      <div class="release-version">v1.0.0</div>
+      <div class="release-date">Oct 1, 2024</div>
+      <div style="margin-top:0.5rem;"><span class="badge badge-gray">Initial Release</span></div>
+    </div>
+    <div class="release-body">
+      <div class="release-section-title release-section-new">🚀 Initial Release</div>
+      <ul>
+        <li>AI-powered documentation generation from OpenAPI specs and plain text.</li>
+        <li>Three document types: API Reference, README, User Guide.</li>
+        <li>Built-in Markdown editor with live preview.</li>
+        <li>Export to Markdown and HTML.</li>
+        <li>Free tier: 10 generations per month.</li>
+        <li>Google and email account sign-in.</li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div><div class="footer-brand">DocCraft<span>·</span>Help</div><p class="footer-desc">Release history for DocCraft AI.</p></div>
+    <div>
+      <div class="footer-col-title">Help Topics</div>
+      <ul class="footer-links">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="feature-generate.html">Feature Guides</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">DocCraft</div>
+      <ul class="footer-links">
+        <li><a href="https://doccraft-ten.vercel.app/" target="_blank">Open App ↗</a></li>
+        <li><a href="index.html">← Help Home</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copyright">© 2025 DocCraft AI — Portfolio project by Sulagna Sasmal</span></div>
+</footer>
+
+<script src="assets/js/search.js"></script>
+</body>
+</html>

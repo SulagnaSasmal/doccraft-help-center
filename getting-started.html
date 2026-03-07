@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Getting Started with DocCraft AI — Help Center</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">DocCraft<span>·</span>Help</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="getting-started.html" class="nav-link active">Getting Started</a>
+      <a href="feature-generate.html" class="nav-link">Features</a>
+      <a href="troubleshooting.html" class="nav-link">Troubleshooting</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://doccraft-ten.vercel.app/" target="_blank" class="btn btn-indigo btn-sm">Open DocCraft ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div style="max-width:var(--content-w);margin:0 auto;padding:3rem 2rem;">
+
+  <div class="breadcrumb">
+    <a href="index.html">Help Center</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Getting Started</span>
+  </div>
+
+  <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin:0.5rem 0 0.5rem;">Quickstart: Generate Your First Document</h1>
+  <p style="color:var(--text-3);font-size:0.875rem;margin-bottom:2.5rem;">Last updated: February 2025 · 5 minute read</p>
+
+  <div class="callout callout-tip">
+    <div class="callout-title">Before You Begin</div>
+    <p>You need a DocCraft account to follow this guide. <a href="https://doccraft-ten.vercel.app/" style="color:var(--teal);">Sign up free at doccraft-ten.vercel.app</a> — no credit card required.</p>
+  </div>
+
+  <p style="color:var(--text-2);font-size:0.95rem;line-height:1.85;margin:1.5rem 0;">This guide walks you from a fresh DocCraft account to your first generated document in under 3 minutes. By the end, you'll have a professionally formatted API reference, README, or user guide ready to review and export.</p>
+
+  <div class="step-list">
+
+    <!-- Step 1 -->
+    <div class="step-item">
+      <div class="step-badge">1</div>
+      <div class="step-body">
+        <div class="step-title">Create Your Account</div>
+        <p>Navigate to <a href="https://doccraft-ten.vercel.app/" style="color:var(--indigo);">doccraft-ten.vercel.app</a> and click <strong>Get Started Free</strong>. You can sign up with Google or an email address.</p>
+        <p>After signing up, you'll land on your DocCraft <strong>Dashboard</strong> — the central control panel where all your generated documents live. The dashboard shows your recent projects, credit usage, and quick-access generation buttons.</p>
+        <div class="callout callout-note">
+          <div class="callout-title">Free Tier</div>
+          <p>Free accounts include 10 document generations per month. Each generation uses your source material to produce one complete document. There are no time limits or expiring credits.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 2 -->
+    <div class="step-item">
+      <div class="step-badge">2</div>
+      <div class="step-body">
+        <div class="step-title">Upload Your Source Material</div>
+        <p>DocCraft accepts three input types — choose whichever matches your project:</p>
+        <ul>
+          <li><strong>GitHub repository URL</strong> — paste a public repo URL. DocCraft reads README files, code comments, and directory structure to understand your project.</li>
+          <li><strong>OpenAPI / Swagger specification</strong> — upload a <code>.yaml</code> or <code>.json</code> spec file. DocCraft generates a complete API reference with endpoint descriptions, parameters, and example requests.</li>
+          <li><strong>Plain text description</strong> — paste a product description, feature brief, or any prose. DocCraft uses this as context to generate documentation in your desired format.</li>
+        </ul>
+        <div class="callout callout-tip">
+          <div class="callout-title">Tip — Better Input, Better Output</div>
+          <p>The quality of your generated documentation correlates directly with the richness of your input. A well-commented codebase or a detailed OpenAPI spec with descriptions produces far more accurate output than a barebones spec with no descriptions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-item">
+      <div class="step-badge">3</div>
+      <div class="step-body">
+        <div class="step-title">Choose a Document Type</div>
+        <p>After uploading your source, select the type of documentation you want DocCraft to generate:</p>
+        <ul>
+          <li><strong>API Reference</strong> — Full endpoint-by-endpoint reference. Best with OpenAPI or Postman input. Generates: overview, authentication guide, endpoint table, request/response schemas.</li>
+          <li><strong>README</strong> — GitHub-style project README. Good for code repos. Generates: intro, installation steps, usage examples, configuration reference, contributing guide.</li>
+          <li><strong>User Guide</strong> — Step-by-step product documentation for end users. Good for SaaS products. Generates: getting started, feature walkthroughs, FAQs.</li>
+          <li><strong>Admin Guide</strong> — System administration and configuration documentation. Generates: installation, system requirements, config options, security settings, maintenance procedures.</li>
+          <li><strong>Release Notes</strong> — Version-by-version changelog. Good for products with commit history or feature lists. Generates: formatted release entries with New Features, Improvements, Bug Fixes sections.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-item">
+      <div class="step-badge">4</div>
+      <div class="step-body">
+        <div class="step-title">Generate and Review</div>
+        <p>Click <strong>Generate</strong>. DocCraft's AI processes your source material — typically in 15–45 seconds depending on the size and complexity of your input. A progress indicator shows generation status.</p>
+        <p>Once generation completes, the document opens in DocCraft's built-in <strong>Document Editor</strong>. This is a full-featured markdown editor where you can:</p>
+        <ul>
+          <li>Edit any section inline using the rich text or raw markdown editor</li>
+          <li>Add, remove, or reorder sections using the sidebar outline panel</li>
+          <li>Ask DocCraft to <em>regenerate</em> a specific section with different instructions ("make this section more concise" / "add code examples for Python")</li>
+          <li>Apply a template to reformat the document structure</li>
+        </ul>
+        <div class="callout callout-note">
+          <div class="callout-title">Generation takes 15–45 seconds</div>
+          <p>Do not navigate away from the page during generation. If your browser tab goes inactive for a long period, the generation may need to be retried. Generation results are saved automatically once complete.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 5 -->
+    <div class="step-item">
+      <div class="step-badge">5</div>
+      <div class="step-body">
+        <div class="step-title">Export Your Document</div>
+        <p>When you're satisfied with the output, export it in any of the supported formats:</p>
+        <ul>
+          <li><strong>Markdown (.md)</strong> — plain markdown for use in GitHub, Git repos, or static site generators</li>
+          <li><strong>HTML (.html)</strong> — standalone HTML page with embedded styles, ready to publish</li>
+          <li><strong>PDF</strong> — print-quality PDF generated from your document layout</li>
+          <li><strong>Confluence</strong> — publish directly to a Confluence space via API integration (requires workspace URL and token)</li>
+        </ul>
+        <p>All export options are available from the <strong>Export</strong> button in the top-right corner of the editor toolbar. Exported files are also available in your Dashboard for 30 days.</p>
+        <div style="margin-top:1.5rem;background:var(--teal-bg);border-radius:var(--radius);padding:1.25rem;border:1px solid var(--teal-border);">
+          <div style="font-family:var(--font-display);font-weight:700;color:var(--teal);margin-bottom:0.5rem;">🎉 You've generated your first document!</div>
+          <p style="font-size:0.875rem;color:var(--text-2);margin:0;">Explore more doc types, try the templates library, or connect your Confluence workspace to start publishing directly from DocCraft.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
+
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+    <div style="flex:1;min-width:220px;">
+      <div style="font-size:0.78rem;color:var(--text-4);margin-bottom:0.4rem;">Next Article</div>
+      <a href="feature-generate.html" style="font-size:0.88rem;font-weight:600;color:var(--indigo);text-decoration:none;">Supported input types and how DocCraft processes them →</a>
+    </div>
+    <div style="flex:1;min-width:220px;text-align:right;">
+      <div style="font-size:0.78rem;color:var(--text-4);margin-bottom:0.4rem;">Need more help?</div>
+      <a href="troubleshooting.html" style="font-size:0.88rem;font-weight:600;color:var(--indigo);text-decoration:none;">→ Troubleshooting Guide</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">DocCraft<span>·</span>Help</div>
+      <p class="footer-desc">Help center for DocCraft AI — built by Sulagna Sasmal.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Related</div>
+      <ul class="footer-links">
+        <li><a href="feature-generate.html">Feature: Generate Docs</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">DocCraft</div>
+      <ul class="footer-links">
+        <li><a href="https://doccraft-ten.vercel.app/" target="_blank">Open App ↗</a></li>
+        <li><a href="index.html">← Help Home</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copyright">© 2025 DocCraft AI — Portfolio project by Sulagna Sasmal</span></div>
+</footer>
+
+<script src="assets/js/search.js"></script>
+</body>
+</html>

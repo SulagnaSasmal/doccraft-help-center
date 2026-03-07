@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frequently Asked Questions — DocCraft Help Center</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">DocCraft<span>·</span>Help</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="getting-started.html" class="nav-link">Getting Started</a>
+      <a href="faq.html" class="nav-link active">FAQ</a>
+      <a href="troubleshooting.html" class="nav-link">Troubleshooting</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://doccraft-ten.vercel.app/" target="_blank" class="btn btn-indigo btn-sm">Open DocCraft ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div style="max-width:var(--content-w);margin:0 auto;padding:3rem 2rem;">
+
+  <div class="breadcrumb">
+    <a href="index.html">Help Center</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>FAQ</span>
+  </div>
+
+  <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin:0.5rem 0 2rem;">Frequently Asked Questions</h1>
+
+  <!-- SECTION 1 -->
+  <div class="faq-section">
+    <div class="faq-section-title">Account &amp; Billing</div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is DocCraft AI free to use? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">DocCraft offers a free tier that includes <strong>10 document generations per month</strong>. Free accounts also get access to all standard document types (API Reference, README, User Guide, Admin Docs, Release Notes) and all export formats. Paid plans are available for teams and higher usage volumes — see the Pricing page for current plans.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Do credits expire? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Free-tier monthly generations reset on your account anniversary date each month. They do not roll over — unused generations in a given month are not added to the following month. Paid plan credits follow the same reset cycle unless otherwise specified in your plan terms.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I change or cancel my plan? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Yes. You can upgrade, downgrade, or cancel from your Account Settings → Billing page at any time. Cancellation takes effect at the end of your current billing cycle. You retain access to all generated documents in your dashboard regardless of plan status.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is there a team or enterprise plan? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Team plans supporting multiple users, shared projects, and centralized billing are on the roadmap for 2025. Currently, DocCraft is designed for individual users. If you need team access, contact the support email to discuss early access options.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I delete my account? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Navigate to Account Settings → Privacy → Delete Account. This permanently deletes all your documents, generation history, and account data. This action cannot be undone. If you have an active paid subscription, please cancel it first to avoid further charges.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="faq-section">
+    <div class="faq-section-title">Using DocCraft</div>
+
+    <div class="faq-item">
+      <div class="faq-question">What file types can I upload as source input? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">DocCraft accepts: <strong>OpenAPI/Swagger specs</strong> (<code>.yaml</code>, <code>.json</code>), <strong>Postman collections</strong> (<code>.json</code>), <strong>plain text and Markdown</strong> (<code>.txt</code>, <code>.md</code>), and <strong>code files</strong> (<code>.js</code>, <code>.py</code>, <code>.ts</code>, <code>.go</code>, <code>.java</code>, and others). You can also paste a GitHub repository URL directly — DocCraft will fetch the public repo contents.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can DocCraft generate docs for private GitHub repositories? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Direct private repo ingestion via GitHub URL is not currently supported. For private repos, the recommended approach is to export a Postman collection, export your OpenAPI spec, or copy/paste relevant source files directly into the DocCraft input field. Full GitHub OAuth integration (including private repo access) is planned.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What AI model does DocCraft use to generate documentation? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">DocCraft uses a combination of large language models optimized for technical writing tasks. The specific model combination and version is not disclosed as it may change as the product evolves. The output is post-processed with terminology normalization and structure formatting passes to ensure consistency across generated sections.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I regenerate just one section without regenerating the whole document? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Yes. In the Document Editor, hover over any section and click the <strong>Regenerate</strong> icon (a circular arrow). A prompt field will appear allowing you to give specific instructions for that section — for example: "Make this more concise", "Add a Python code example", or "Rewrite this for non-technical users". Section-level regeneration does not affect other sections.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">How long are generated documents stored? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Generated documents are stored in your dashboard for <strong>90 days</strong> from creation date. After 90 days, documents are automatically deleted unless you have exported them or saved them to an integration. Free-tier users should export important documents promptly. Paid plan users may have extended storage — check your plan details.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I customize the output format and style? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Yes. DocCraft supports <strong>custom tone instructions</strong> (technical, approachable, concise), section inclusion/exclusion, and custom templates. In Advanced Settings, you can specify a company style guide summary, preferred heading hierarchy, and terminology preferences. These are applied to the generation prompt before processing.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">What languages does DocCraft support for code examples in documentation? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">When generating API references, DocCraft can produce code examples in <strong>Node.js, Python, cURL, Ruby, PHP, Go, and Java</strong>. Language selection is available in the Advanced Settings panel before generation. If your source is a typed language like TypeScript or Kotlin, DocCraft will maintain the original language for examples while offering translated examples in your selected secondary languages.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="faq-section">
+    <div class="faq-section-title">Integrations</div>
+
+    <div class="faq-item">
+      <div class="faq-question">How do I connect DocCraft to Confluence? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Go to <strong>Settings → Integrations → Confluence</strong>. You'll need your Confluence Cloud workspace URL (e.g., <code>https://yourcompany.atlassian.net</code>) and a Confluence API token. You can generate an API token at <code>id.atlassian.com → Security → API tokens</code>. Once connected, you can select a target Space and parent page before exporting any document.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Does DocCraft integrate with GitHub to auto-update README files? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Auto-push to GitHub is not yet available. Currently, you export your generated README as a Markdown file and commit it to your repository manually. A GitHub integration that allows direct push (including PR creation) is in active development.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I export to Notion? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Notion export via the Notion API is on the roadmap. Currently, the best workaround is to export your document as Markdown and use Notion's built-in Markdown import feature (Block menu → Import → Text &amp; Markdown). Notion does not preserve all HTML structure from the HTML export, so Markdown is the recommended format for Notion.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is there an API to trigger DocCraft programmatically? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">A DocCraft REST API is in development and expected in 2025 H1. The API will allow trigger-based generation from CI/CD pipelines (e.g., regenerate API reference on every OpenAPI spec change) and programmatic export to connected destinations. Early API access is available — contact support if you have an enterprise use case.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="faq-section">
+    <div class="faq-section-title">Privacy &amp; Security</div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is my source code stored by DocCraft? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">Source material you upload is processed in-memory for generation and is <strong>not persistently stored</strong> after generation completes. The generated document output is stored in your dashboard (see storage policy above). DocCraft does not use your source code to train or fine-tune AI models. See the full Privacy Policy for details.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Is DocCraft GDPR compliant? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">DocCraft processes data in compliance with GDPR. User data is stored in EU-region infrastructure. You can request a full data export or account deletion at any time from Account Settings → Privacy. Data deletion requests are fulfilled within 30 days of submission.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Can I use DocCraft to generate documentation for a regulated product (fintech, healthcare, legal)? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">DocCraft can generate draft documentation for regulated products. However, all AI-generated content must be reviewed, verified, and approved by qualified human reviewers before use in production, regulatory submissions, or customer-facing materials. DocCraft output is a starting point, not a compliance-ready final deliverable.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">Who can see my generated documents? <span class="faq-chevron">›</span></div>
+      <div class="faq-answer">By default, all documents are <strong>private</strong> — visible only to your account. DocCraft does not have a public sharing feature at this time. When you export a document, the exported file exists only on your local device. No team members, DocCraft staff, or third parties can access your documents without your explicit sharing action.</div>
+    </div>
+  </div>
+
+  <div style="background:var(--indigo-light);border:1px solid var(--indigo-border);border-radius:var(--radius-lg);padding:1.5rem;text-align:center;margin-top:2rem;">
+    <div style="font-family:var(--font-display);font-weight:700;color:var(--text);margin-bottom:0.5rem;">Still have questions?</div>
+    <p style="font-size:0.875rem;color:var(--text-2);margin-bottom:1rem;">Check the troubleshooting guide or open a support request from your Dashboard.</p>
+    <a href="troubleshooting.html" class="btn btn-indigo">View Troubleshooting Guide →</a>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div><div class="footer-brand">DocCraft<span>·</span>Help</div><p class="footer-desc">Help center for DocCraft AI.</p></div>
+    <div>
+      <div class="footer-col-title">Help Topics</div>
+      <ul class="footer-links">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="feature-generate.html">Feature Guides</a></li>
+        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+        <li><a href="release-notes.html">Release Notes</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">DocCraft</div>
+      <ul class="footer-links">
+        <li><a href="https://doccraft-ten.vercel.app/" target="_blank">Open App ↗</a></li>
+        <li><a href="index.html">← Help Home</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copyright">© 2025 DocCraft AI — Portfolio project by Sulagna Sasmal</span></div>
+</footer>
+
+<script src="assets/js/search.js"></script>
+</body>
+</html>
