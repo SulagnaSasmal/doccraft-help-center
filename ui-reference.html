@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="DocCraft AI UI Reference — complete reference for every panel, control, and setting in the DocCraft interface.">
+<title>UI Reference — DocCraft Help Center</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">DocCraft<span>·</span>Help</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="getting-started.html" class="nav-link">Getting Started</a>
+      <a href="feature-generate.html" class="nav-link">Features</a>
+      <a href="workflows.html" class="nav-link">Workflows</a>
+      <a href="ui-reference.html" class="nav-link active">UI Reference</a>
+      <a href="troubleshooting.html" class="nav-link">Troubleshooting</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://doccraft-ten.vercel.app/" target="_blank" rel="noopener" class="btn btn-indigo btn-sm">Open DocCraft ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div style="max-width:var(--content-w);margin:0 auto;padding:3rem 2rem;">
+
+  <div class="breadcrumb">
+    <a href="index.html">Help Center</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>UI Reference</span>
+  </div>
+
+  <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin:0.5rem 0 0.5rem;">UI Reference</h1>
+  <p style="color:var(--text-3);font-size:0.875rem;margin-bottom:0.5rem;">Last updated: March 2025 · DocCraft v1.4</p>
+  <p style="color:var(--text-2);font-size:0.95rem;line-height:1.85;margin-bottom:2.5rem;">A complete reference for every panel, control, and setting in DocCraft. Use this guide when you want to understand what a specific button or option does, or when a help article refers to a UI element by name.</p>
+
+  <!-- section nav -->
+  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:3rem;">
+    <div style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--indigo);margin-bottom:0.75rem;">Sections</div>
+    <ul style="padding-left:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:0.35rem;">
+      <li style="font-size:0.85rem;"><a href="#dashboard" style="color:var(--indigo);text-decoration:none;">Dashboard</a></li>
+      <li style="font-size:0.85rem;"><a href="#input-panel" style="color:var(--indigo);text-decoration:none;">Input Panel</a></li>
+      <li style="font-size:0.85rem;"><a href="#document-editor" style="color:var(--indigo);text-decoration:none;">Document Editor</a></li>
+      <li style="font-size:0.85rem;"><a href="#editor-toolbar" style="color:var(--indigo);text-decoration:none;">Editor Toolbar</a></li>
+      <li style="font-size:0.85rem;"><a href="#outline-panel" style="color:var(--indigo);text-decoration:none;">Outline Panel</a></li>
+      <li style="font-size:0.85rem;"><a href="#regenerate-panel" style="color:var(--indigo);text-decoration:none;">Regenerate Panel</a></li>
+      <li style="font-size:0.85rem;"><a href="#export-panel" style="color:var(--indigo);text-decoration:none;">Export Panel</a></li>
+      <li style="font-size:0.85rem;"><a href="#settings" style="color:var(--indigo);text-decoration:none;">Settings</a></li>
+    </ul>
+  </div>
+
+  <!-- ─── DASHBOARD ─── -->
+  <section id="dashboard">
+    <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin-bottom:0.5rem;">Dashboard</h2>
+    <p style="color:var(--text-2);font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">The Dashboard is the home screen you see after signing in. It lists all your documents and provides quick access to generate new ones.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:2rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);white-space:nowrap;">Element</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);white-space:nowrap;">New Document button</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Opens the Input Panel to start a new generation. Keyboard shortcut: <code>N</code>.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);white-space:nowrap;">Projects table</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Lists all documents you have generated. Columns: Title, Document Type, Last Modified, Status. Click any row to open the document in the editor. Right-click for options: Rename, Duplicate, Archive, Delete.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);white-space:nowrap;">Credit meter</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Shows remaining document generations for the current billing period. Free tier: 10/month. Paid tiers show unlimited or a higher allotment. Click the meter to open the billing panel.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);white-space:nowrap;">Filter bar</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Filters the project table by document type. Select one or more types (API Reference, README, User Guide, Admin Guide, Release Notes) to narrow the list. The filter state is not saved between sessions.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);white-space:nowrap;">Search</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Full-text search across document titles. Does not search document content. Shortcut: <code>/</code>.</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);white-space:nowrap;">Recent exports</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Shows the five most recent exported files with download links. Exports are retained for 30 days from the date of export.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:2.5rem 0;">
+
+  <!-- ─── INPUT PANEL ─── -->
+  <section id="input-panel">
+    <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin-bottom:0.5rem;">Input Panel</h2>
+    <p style="color:var(--text-2);font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">The Input Panel controls what source material DocCraft uses for generation. It opens when you click <strong>New Document</strong> and consists of three tabs and a document type selector.</p>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin:1.5rem 0 0.75rem;">Input tabs</h3>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:1.5rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);white-space:nowrap;">Tab</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Use when</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Accepted input</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Upload</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">You have a file on disk</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">.yaml · .yml · .json · .md · .txt</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Paste</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">You want to paste text directly</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Any plain text, YAML, JSON, or markdown</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">URL</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Your source is online</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Public GitHub repo URL, raw file URL, or publicly accessible OpenAPI URL</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin:1.5rem 0 0.75rem;">Document type selector</h3>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:1.5rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);white-space:nowrap;">Type</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Best input</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">What DocCraft generates</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">API Reference</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">OpenAPI spec</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Overview, auth guide, endpoint reference, error catalog, multi-language code samples</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">README</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">GitHub repo URL or code</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Title + badges, description, installation, usage, configuration table, contributing guide</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">User Guide</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Product description or spec</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Getting started, feature walkthroughs, task-based how-to guides, FAQ</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Admin Guide</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Config file or deployment spec</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">System requirements, installation, configuration reference, security, maintenance</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Release Notes</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Commit list or changelog</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Versioned release entries with New Features, Improvements, and Bug Fixes sections</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin:1.5rem 0 0.75rem;">Advanced options</h3>
+    <p style="color:var(--text-2);font-size:0.875rem;line-height:1.8;margin-bottom:1rem;">Expand <strong>Advanced options</strong> below the document type selector to access generation settings.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:2rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);white-space:nowrap;">Option</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Values</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Tone</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">Technical · Professional · Friendly</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Controls prose style. <em>Technical</em> uses precise language and minimal hedging. <em>Professional</em> is formal but accessible. <em>Friendly</em> uses conversational language with contractions.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Include code samples</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">On (default) · Off</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">When enabled, DocCraft generates curl, Python, JavaScript, and Go samples for API Reference documents. Has no effect on README or User Guide documents.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Authentication treatment</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">Dedicated section · Inline</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">API Reference only. <em>Dedicated section</em> creates a standalone authentication guide before the endpoint reference. <em>Inline</em> notes auth requirements on each endpoint instead.</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Output length</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">Concise · Standard (default) · Detailed</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Controls the verbosity of generated prose. <em>Concise</em> produces shorter descriptions with less explanatory context. <em>Detailed</em> adds more background and reasoning to each section.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:2.5rem 0;">
+
+  <!-- ─── DOCUMENT EDITOR ─── -->
+  <section id="document-editor">
+    <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin-bottom:0.5rem;">Document Editor</h2>
+    <p style="color:var(--text-2);font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">The Document Editor opens automatically when a generation completes. It has three main areas: the Outline panel on the left, the editor canvas in the center, and contextual panels on the right (Regenerate, Export, Comments).</p>
+
+    <div style="background:var(--code-bg);color:var(--code-text);border-radius:var(--radius);padding:1.25rem 1.5rem;margin:1rem 0 2rem;font-family:var(--font-mono);font-size:0.78rem;line-height:1.8;overflow-x:auto;white-space:pre;">┌─────────────────────────────────────────────────────────┐
+│  [New]  [Templates]  [Regenerate]  [Export]  [...]      │  ← Toolbar
+├──────────────┬──────────────────────────┬───────────────┤
+│              │                          │               │
+│   Outline    │    Editor canvas         │  Side panel   │
+│   panel      │    (editable content)    │  (contextual) │
+│              │                          │               │
+│  ▼ Overview  │  # Overview             │  Regenerate   │
+│    Auth      │  DocCraft converts...   │  Export       │
+│  ▼ Endpoints │                          │  Comments     │
+│    GET /pay  │  > Callout              │               │
+│    POST /pay │  ## Authentication      │               │
+│    ...       │  ...                    │               │
+└──────────────┴──────────────────────────┴───────────────┘</div>
+  </section>
+
+  <!-- ─── EDITOR TOOLBAR ─── -->
+  <section id="editor-toolbar">
+    <h3 style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">Editor Toolbar</h3>
+    <p style="color:var(--text-2);font-size:0.875rem;line-height:1.85;margin-bottom:1.25rem;">The toolbar runs along the top of the editor. Before we describe the buttons, note that the toolbar state is context-sensitive — some buttons are grayed out when nothing is selected or when the document type doesn't support a given feature.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:2rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);white-space:nowrap;">Button</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Action</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Shortcut</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Undo / Redo</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Standard undo and redo for editing operations. Works on text edits, section moves, and template applications.</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">Ctrl+Z / Ctrl+Y</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Templates</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Opens the Template Browser side panel. Lets you apply a preset structure to the current document. See <a href="workflows.html#wf5" style="color:var(--indigo);">Apply a documentation template</a>.</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">—</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Regenerate</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Opens the Regenerate Panel for the currently selected section. Active only when a section or paragraph is selected. See the <a href="#regenerate-panel" style="color:var(--indigo);">Regenerate Panel</a> section below.</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">Ctrl+R</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Export</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Opens the Export Panel. Available at all times, regardless of what is selected in the editor. See the <a href="#export-panel" style="color:var(--indigo);">Export Panel</a> section below.</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">Ctrl+E</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">View mode</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Toggles between <em>Edit</em> (rich text with toolbar) and <em>Raw</em> (plain markdown source). All changes sync between modes — edits in Raw mode appear in Edit mode and vice versa.</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">Ctrl+`</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">More (⋯)</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Opens a dropdown with less-frequent actions: Rename document, Duplicate, Archive, View export history, Print preview.</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">—</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ─── OUTLINE PANEL ─── -->
+  <section id="outline-panel">
+    <h3 style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:0.75rem;">Outline Panel</h3>
+    <p style="color:var(--text-2);font-size:0.875rem;line-height:1.85;margin-bottom:1.25rem;">The Outline Panel on the left side of the editor shows a hierarchical tree of the document's sections. Clicking a section name in the outline scrolls the editor canvas to that section and selects it as the active section.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:2rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Control</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Section tree</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Mirrors the H1, H2, and H3 headings in the document. Collapse or expand subtrees by clicking the triangle icon. Indentation reflects heading hierarchy.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Drag handles</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Hover over a section in the outline to reveal a drag handle (⋮⋮). Drag sections to reorder them within the document. Reordering in the outline reorders the corresponding content in the canvas.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Section actions (…)</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Right-click or hover over a section in the outline to reveal the section actions menu: <em>Rename heading</em>, <em>Regenerate section</em>, <em>Delete section</em>, <em>Add section below</em>.</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Active section indicator</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">A blue left border highlights the section currently visible in the viewport — the outline scrolls to keep this visible if the document is long. This also drives which section the Regenerate button acts on.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:2.5rem 0;">
+
+  <!-- ─── REGENERATE PANEL ─── -->
+  <section id="regenerate-panel">
+    <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin-bottom:0.5rem;">Regenerate Panel</h2>
+    <p style="color:var(--text-2);font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">The Regenerate Panel opens on the right side of the editor when you click <strong>Regenerate</strong> or use the section actions menu. It lets you revise individual sections without reprocessing the entire document.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:2rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Control</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Instruction field</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Free-text field for revision instructions. Be specific. Examples: "Make this 50% shorter", "Add a warning callout about rate limits", "Rewrite using second person (you) instead of third person".</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Quick revision chips</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Pre-built instruction shortcuts: <em>Make concise</em>, <em>Add code example</em>, <em>Add callout</em>, <em>Change tone to friendly</em>, <em>Expand detail</em>. Clicking a chip populates the instruction field — you can edit it further before applying.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Apply Revision button</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Submits the instruction and regenerates the selected section. The revised section replaces the original in the canvas with a yellow pending highlight.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Accept / Discard / Compare</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Actions that appear after a revision is generated. <em>Accept</em> commits the change. <em>Discard</em> restores the original. <em>Compare</em> opens a side-by-side diff of the original and revised text.</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Revision history</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">The last five regenerations for the current section are listed below the instruction field. Click any previous revision to restore it for comparison or acceptance.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:2.5rem 0;">
+
+  <!-- ─── EXPORT PANEL ─── -->
+  <section id="export-panel">
+    <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin-bottom:0.5rem;">Export Panel</h2>
+    <p style="color:var(--text-2);font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">The Export Panel opens from the <strong>Export</strong> button in the editor toolbar. It controls how your document is packaged and where it goes.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:2rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Format</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Output</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Best for</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Markdown</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">.md file</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">GitHub wikis, static site generators (Docusaurus, MkDocs, VitePress), Git repos</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">HTML</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">.html file (standalone)</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Self-hosted developer portals, embedding in existing documentation sites, email delivery</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">PDF</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">.pdf file</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Print distribution, formal deliverables, offline reference documents</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Confluence</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);font-family:var(--font-mono);font-size:0.78rem;">Confluence page</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Internal documentation wikis, team knowledge bases. Requires Confluence integration. See <a href="workflows.html#wf4" style="color:var(--indigo);">Export to Confluence workflow</a>.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:2.5rem 0;">
+
+  <!-- ─── SETTINGS ─── -->
+  <section id="settings">
+    <h2 style="font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin-bottom:0.5rem;">Settings</h2>
+    <p style="color:var(--text-2);font-size:0.9rem;line-height:1.85;margin-bottom:1.5rem;">Open Settings from the user avatar menu (top right) or from the Dashboard sidebar. Settings are organized into four tabs.</p>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin:1.5rem 0 0.75rem;">Profile</h3>
+    <p style="color:var(--text-2);font-size:0.875rem;line-height:1.8;margin-bottom:1.25rem;">Manage your display name, email address, and password. If you signed up with Google, password management is handled through your Google account — the password field is hidden.</p>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin:1.5rem 0 0.75rem;">API Keys</h3>
+    <p style="color:var(--text-2);font-size:0.875rem;line-height:1.8;margin-bottom:0.75rem;">DocCraft exposes a REST API for programmatic document generation. The API Keys tab lets you create, view, and revoke API keys for your account.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:1.5rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Control</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Create API key</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Generates a new key. You are prompted to give it a name (for your reference) and select a permission scope: <em>Read-only</em> (read project metadata) or <em>Full access</em> (generate, read, export). The full key value is shown once — copy it before closing the dialog.</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Key list</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Shows all active keys with their name, scope, creation date, and last-used date. Key values are not shown after creation — only the first four and last four characters are visible.</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Revoke</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Immediately invalidates the key. Any application using the revoked key begins receiving 401 Unauthorized responses. Revocation cannot be undone — create a new key if needed.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin:1.5rem 0 0.75rem;">Integrations</h3>
+    <p style="color:var(--text-2);font-size:0.875rem;line-height:1.8;margin-bottom:0.75rem;">Configure connections to third-party services that DocCraft can read from or publish to.</p>
+
+    <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin-bottom:2rem;">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border);">
+          <th style="text-align:left;padding:0.6rem 0.75rem 0.6rem 0;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Integration</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Required credentials</th>
+          <th style="text-align:left;padding:0.6rem 0.75rem;font-family:var(--font-mono);font-size:0.7rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-3);">Enables</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">GitHub</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">OAuth (sign in with GitHub)</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Access to private repositories, push exported files directly to a GitHub branch</td>
+        </tr>
+        <tr style="border-bottom:1px solid var(--border);">
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Confluence</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Workspace URL, account email, API token</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Publish documents directly to a Confluence space</td>
+        </tr>
+        <tr>
+          <td style="padding:0.7rem 0.75rem 0.7rem 0;font-weight:600;color:var(--text);">Notion</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">OAuth (sign in with Notion)</td>
+          <td style="padding:0.7rem 0.75rem;color:var(--text-2);">Publish documents to a Notion workspace page</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin:1.5rem 0 0.75rem;">Appearance</h3>
+    <p style="color:var(--text-2);font-size:0.875rem;line-height:1.8;margin-bottom:0.75rem;">Controls the visual theme for the DocCraft interface.</p>
+    <ul style="font-size:0.875rem;color:var(--text-2);padding-left:1.25rem;line-height:1.8;">
+      <li><strong>Theme</strong> — Light, Dark, or System (follows the OS preference). Default: System.</li>
+      <li><strong>Editor font size</strong> — Adjusts the text size in the editor canvas. Values: 13px, 14px (default), 15px, 16px. Does not affect exported output.</li>
+      <li><strong>Compact mode</strong> — Reduces vertical spacing in the editor and outline panel. Useful on smaller displays.</li>
+    </ul>
+  </section>
+
+  <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
+
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+    <div style="flex:1;min-width:220px;">
+      <div style="font-size:0.78rem;color:var(--text-4);margin-bottom:0.4rem;">Related</div>
+      <a href="workflows.html" style="font-size:0.875rem;font-weight:600;color:var(--indigo);text-decoration:none;">Workflow Guides — step-by-step task walkthroughs →</a>
+    </div>
+    <div style="flex:1;min-width:220px;text-align:right;">
+      <div style="font-size:0.78rem;color:var(--text-4);margin-bottom:0.4rem;">Need more help?</div>
+      <a href="troubleshooting.html" style="font-size:0.875rem;font-weight:600;color:var(--indigo);text-decoration:none;">→ Troubleshooting Guide</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">DocCraft<span>·</span>Help</div>
+      <p class="footer-desc">Help center for DocCraft AI — built by Sulagna Sasmal.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Guides</div>
+      <ul class="footer-links">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="feature-generate.html">Features</a></li>
+        <li><a href="ui-reference.html">UI Reference</a></li>
+        <li><a href="workflows.html">Workflows</a></li>
+        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">DocCraft</div>
+      <ul class="footer-links">
+        <li><a href="https://doccraft-ten.vercel.app/" target="_blank" rel="noopener">Open App ↗</a></li>
+        <li><a href="release-notes.html">What's New</a></li>
+        <li><a href="index.html">← Help Home</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copyright">© 2025 DocCraft AI — Portfolio project by Sulagna Sasmal</span></div>
+</footer>
+
+<script src="assets/js/search.js"></script>
+</body>
+</html>

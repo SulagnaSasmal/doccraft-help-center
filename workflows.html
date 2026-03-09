@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Step-by-step workflow guides for common DocCraft AI tasks — generate API references, READMEs, user guides, and more.">
+<title>Workflow Guides — DocCraft Help Center</title>
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">DocCraft<span>·</span>Help</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="getting-started.html" class="nav-link">Getting Started</a>
+      <a href="feature-generate.html" class="nav-link">Features</a>
+      <a href="workflows.html" class="nav-link active">Workflows</a>
+      <a href="ui-reference.html" class="nav-link">UI Reference</a>
+      <a href="troubleshooting.html" class="nav-link">Troubleshooting</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://doccraft-ten.vercel.app/" target="_blank" rel="noopener" class="btn btn-indigo btn-sm">Open DocCraft ↗</a>
+    </div>
+  </div>
+</nav>
+
+<div style="max-width:var(--content-w);margin:0 auto;padding:3rem 2rem;">
+
+  <div class="breadcrumb">
+    <a href="index.html">Help Center</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Workflow Guides</span>
+  </div>
+
+  <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin:0.5rem 0 0.5rem;">Workflow Guides</h1>
+  <p style="color:var(--text-3);font-size:0.875rem;margin-bottom:0.5rem;">Last updated: March 2025</p>
+  <p style="color:var(--text-2);font-size:0.95rem;line-height:1.85;margin-bottom:2.5rem;">Task-based guides for the most common DocCraft workflows. Each guide is self-contained — follow the steps in order, and you'll have a working result by the final step.</p>
+
+  <!-- Workflow index -->
+  <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:3rem;">
+    <div style="font-family:var(--font-mono);font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--indigo);margin-bottom:0.75rem;">In this guide</div>
+    <ol style="padding-left:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;">
+      <li style="font-size:0.85rem;"><a href="#wf1" style="color:var(--indigo);text-decoration:none;">Generate an API reference</a></li>
+      <li style="font-size:0.85rem;"><a href="#wf2" style="color:var(--indigo);text-decoration:none;">Generate a README from a GitHub repo</a></li>
+      <li style="font-size:0.85rem;"><a href="#wf3" style="color:var(--indigo);text-decoration:none;">Regenerate and iterate on a section</a></li>
+      <li style="font-size:0.85rem;"><a href="#wf4" style="color:var(--indigo);text-decoration:none;">Export and publish to Confluence</a></li>
+      <li style="font-size:0.85rem;"><a href="#wf5" style="color:var(--indigo);text-decoration:none;">Apply a documentation template</a></li>
+    </ol>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin-bottom:3rem;">
+
+  <!-- ─── WORKFLOW 1 ─── -->
+  <section id="wf1">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin:0;">Generate an API reference from an OpenAPI spec</h2>
+        <p style="color:var(--text-3);font-size:0.875rem;margin-top:0.4rem;">Produce a complete, publishable API reference in under five minutes.</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+        <span class="badge badge-teal">5 min</span>
+        <span class="badge badge-indigo">OpenAPI / Swagger</span>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <div class="callout-title">Before you start</div>
+      <p>You need an OpenAPI 3.x specification in <code>.yaml</code>, <code>.yml</code>, or <code>.json</code> format. OpenAPI 2.x (Swagger) files work but produce less detailed output because Swagger lacks the schema depth of OAS 3.x. If you only have a Swagger file, consider upgrading it with the <a href="https://editor.swagger.io/" style="color:var(--teal);">Swagger Editor</a> before proceeding.</p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Open a new document</div>
+          <p>From the DocCraft Dashboard, click <strong>New Document</strong>. The input panel opens on the right side of the screen.</p>
+          <p>If you already have an open project, you can also click <strong>+ New</strong> in the top navigation bar.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Upload your spec file</div>
+          <p>In the input panel, select the <strong>Upload</strong> tab. Drag your spec file into the upload zone, or click <strong>Browse</strong> to select it from disk.</p>
+          <p>DocCraft validates the file on upload. A green checkmark confirms the spec is valid. If validation fails, an error summary appears — the most common causes are an invalid YAML structure or unresolved <code>$ref</code> paths.</p>
+          <div class="callout callout-note">
+            <div class="callout-title">Large specs</div>
+            <p>Specs with more than 150 endpoints take longer to process (typically 30–60 seconds). DocCraft handles large specs fully — it does not truncate or skip endpoints. If you're uploading a spec this size, keep the browser tab active during processing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Select "API Reference" as the document type</div>
+          <p>In the <strong>Document Type</strong> dropdown, select <strong>API Reference</strong>. This template generates:</p>
+          <ul>
+            <li>An overview section — pulled from the <code>info.description</code> field in your spec</li>
+            <li>An authentication guide — generated from your <code>securitySchemes</code> definitions</li>
+            <li>An endpoint-by-endpoint reference — one section per path and method, with parameters, request body, and response schemas</li>
+            <li>An error reference — consolidated from all <code>4xx</code> and <code>5xx</code> response definitions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">4</div>
+        <div class="step-body">
+          <div class="step-title">Set generation options</div>
+          <p>Expand <strong>Advanced options</strong> to adjust how DocCraft writes the output. For API references, these options are most relevant:</p>
+          <ul>
+            <li><strong>Tone</strong> — set to <em>Technical</em> for developer audiences. If you're writing for a business audience, <em>Professional</em> produces less jargon-heavy prose.</li>
+            <li><strong>Include code samples</strong> — enabled by default. DocCraft generates curl, Python, JavaScript, and Go samples for every endpoint. Disable this if you plan to add code samples manually.</li>
+            <li><strong>Authentication treatment</strong> — choose between <em>Inline</em> (auth requirements appear on each endpoint) or <em>Dedicated section</em> (a single authentication guide at the top).</li>
+          </ul>
+          <div class="callout callout-note">
+            <div class="callout-title">Code sample accuracy</div>
+            <p>Generated code samples are syntactically correct and structurally accurate, but they use placeholder values for API keys and base URLs. Review the authentication section and replace placeholders before publishing.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">5</div>
+        <div class="step-body">
+          <div class="step-title">Generate and review the output</div>
+          <p>Click <strong>Generate</strong>. Generation typically completes in 20–45 seconds for an average-size spec. The document opens in the editor when ready.</p>
+          <p>Review the output in this order:</p>
+          <ol>
+            <li><strong>Overview section</strong> — check that the product description is accurate and reads naturally. If your spec's <code>info.description</code> was sparse, DocCraft fills in context — verify it's correct.</li>
+            <li><strong>Authentication guide</strong> — confirm the auth flows match your actual implementation, not just the spec definition.</li>
+            <li><strong>A sampling of endpoints</strong> — spot-check 3–5 endpoints. The parameter tables and schema descriptions are generated from your spec — they should be accurate, but verify the behavior descriptions are correct.</li>
+            <li><strong>Code samples</strong> — confirm syntax is correct for your API's structure. Replace any placeholder values.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">6</div>
+        <div class="step-body">
+          <div class="step-title">Export the finished document</div>
+          <p>Click <strong>Export</strong> in the editor toolbar and choose your target format:</p>
+          <ul>
+            <li><strong>Markdown</strong> — for GitHub wikis, static site generators (Docusaurus, MkDocs), or Git repos</li>
+            <li><strong>HTML</strong> — for self-hosted developer portals or embedding in existing documentation sites</li>
+            <li><strong>Confluence</strong> — for publishing directly to an internal Confluence space</li>
+          </ul>
+          <p>Your exported file downloads immediately. It is also saved to your project's <strong>Exports</strong> tab for 30 days.</p>
+          <div style="margin-top:1rem;background:var(--teal-bg);border-radius:var(--radius);padding:1rem 1.25rem;border:1px solid var(--teal-border);">
+            <div style="font-size:0.82rem;font-weight:700;color:var(--teal);margin-bottom:0.25rem;">Result</div>
+            <p style="font-size:0.875rem;color:var(--text-2);margin:0;">A complete, publish-ready API reference with an overview, authentication guide, full endpoint reference, and multi-language code samples.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── WORKFLOW 2 ─── -->
+  <section id="wf2">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin:0;">Generate a README from a GitHub repository</h2>
+        <p style="color:var(--text-3);font-size:0.875rem;margin-top:0.4rem;">Produce a complete, well-structured README from a public GitHub repository.</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+        <span class="badge badge-teal">3 min</span>
+        <span class="badge badge-indigo">GitHub URL</span>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <div class="callout-title">Before you start</div>
+      <p>The repository must be publicly accessible. Private repository support requires a GitHub OAuth connection under <strong>Settings → Integrations → GitHub</strong>. Repositories with at least some inline code comments, existing README text, or a <code>package.json</code> / <code>pyproject.toml</code> file produce better output.</p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Paste the repository URL</div>
+          <p>Open a new document from the Dashboard. In the input panel, select the <strong>URL</strong> tab and paste the GitHub repository URL — for example, <code>https://github.com/your-org/your-repo</code>.</p>
+          <p>DocCraft reads the repository's file structure, README (if any), code files, and configuration files. It does not clone the repository — it reads via the GitHub API, which means it respects public/private access controls.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Select "README" as the document type</div>
+          <p>In the Document Type dropdown, select <strong>README</strong>. This generates a GitHub-convention README with the following sections:</p>
+          <ul>
+            <li><strong>Title and badges</strong> — project name, version, license, and CI/CD status badges (populated where data is available)</li>
+            <li><strong>Project description</strong> — a concise description of what the project does and the problem it solves</li>
+            <li><strong>Prerequisites and installation</strong> — inferred from package managers and configuration files (<code>package.json</code>, <code>requirements.txt</code>, <code>Gemfile</code>, etc.)</li>
+            <li><strong>Usage examples</strong> — basic usage snippets generated from code structure and any existing examples</li>
+            <li><strong>Configuration reference</strong> — table of environment variables or config options, when detectable</li>
+            <li><strong>Contributing guide</strong> — boilerplate contributing instructions with project-specific branching details where detectable</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Review the generated badge block</div>
+          <p>DocCraft generates badge markup using standard shields.io patterns. After generation, verify that badge URLs are accurate — particularly:</p>
+          <ul>
+            <li>Package version badges reference your actual package manager and package name</li>
+            <li>License badge references the license actually used in the repository</li>
+            <li>CI/CD badge URL is correct for your CI provider and workflow name</li>
+          </ul>
+          <p>Replace any placeholder values in the badge block before publishing. Select the badge block in the editor and use <strong>Regenerate Section</strong> to ask DocCraft to update specific badges if you have additional information to provide.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">4</div>
+        <div class="step-body">
+          <div class="step-title">Export as Markdown</div>
+          <p>Click <strong>Export → Markdown</strong>. The downloaded <code>.md</code> file is ready to replace or supplement your repository's existing <code>README.md</code>.</p>
+          <div class="callout callout-warning">
+            <div class="callout-title">Version control note</div>
+            <p>The exported README is a standalone file — it does not automatically update in the repository. Commit the file to your repo as you would any other markdown file. If you connected the GitHub integration, you can push the file directly from the Export panel using <strong>Export → Push to GitHub</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── WORKFLOW 3 ─── -->
+  <section id="wf3">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin:0;">Regenerate and iterate on a section</h2>
+        <p style="color:var(--text-3);font-size:0.875rem;margin-top:0.4rem;">Revise a section of a generated document without regenerating the entire document.</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+        <span class="badge badge-teal">2 min</span>
+        <span class="badge badge-indigo">Document Editor</span>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <div class="callout-title">Before you start</div>
+      <p>You need an existing generated document open in the editor. This workflow applies to any document type — API references, READMEs, user guides, and admin guides all support section-level regeneration.</p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Select the section to revise</div>
+          <p>In the editor, click anywhere inside the section you want to regenerate. The section highlights with a subtle border — this is the active selection indicator. You can also select a section from the <strong>Outline</strong> panel on the left by clicking its name.</p>
+          <p>DocCraft treats the content between two headings as a single section. If you want to regenerate only a paragraph within a section, highlight that paragraph with your cursor instead.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Open the Regenerate panel</div>
+          <p>With the section selected, click the <strong>Regenerate</strong> button in the editor toolbar (the circular arrow icon). The Regenerate panel slides in from the right side.</p>
+          <p>The panel shows the current section content and an instruction field. You can provide natural language instructions to guide the revision — for example:</p>
+          <div class="code-block">Make this section more concise — cut it to 3 short paragraphs maximum.
+
+Add a Python code example after the second paragraph.
+
+Rewrite this in a friendlier, less formal tone.
+
+Change all references from "the user" to "you".</div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Enter your revision instructions and regenerate</div>
+          <p>Type your instructions in the field and click <strong>Apply Revision</strong>. DocCraft regenerates the selected section based on your instructions, preserving the surrounding document structure.</p>
+          <p>Regeneration for a single section typically completes in 5–15 seconds.</p>
+          <div class="callout callout-note">
+            <div class="callout-title">Instruction specificity</div>
+            <p>More specific instructions produce more predictable results. Vague instructions like "make this better" are less effective than targeted instructions like "shorten to two paragraphs and add a callout box noting the 60-second timeout limit". DocCraft works best when you describe the desired outcome, not just the quality judgment.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">4</div>
+        <div class="step-body">
+          <div class="step-title">Accept or discard the revision</div>
+          <p>The regenerated section appears with a yellow highlight to indicate it's a pending revision. Review the change:</p>
+          <ul>
+            <li>Click <strong>Accept</strong> to replace the original section with the revision.</li>
+            <li>Click <strong>Discard</strong> to keep the original and try again with different instructions.</li>
+            <li>Click <strong>Compare</strong> to view the original and revised sections side by side before deciding.</li>
+          </ul>
+          <p>Accepted revisions are saved to the document immediately and included in the next export.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── WORKFLOW 4 ─── -->
+  <section id="wf4">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin:0;">Export and publish to Confluence</h2>
+        <p style="color:var(--text-3);font-size:0.875rem;margin-top:0.4rem;">Connect DocCraft to your Confluence workspace and publish documentation directly.</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+        <span class="badge badge-teal">10 min setup · 1 min per publish</span>
+        <span class="badge badge-purple">Integration</span>
+      </div>
+    </div>
+
+    <div class="callout callout-warning">
+      <div class="callout-title">Required permissions</div>
+      <p>You need a Confluence account with <strong>Create Page</strong> and <strong>Edit Page</strong> permissions on at least one space. If you're connecting to a company Confluence instance, confirm with your administrator that API token access is permitted for your account.</p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Generate a Confluence API token</div>
+          <p>In a separate browser tab, go to <a href="https://id.atlassian.com/manage-profile/security/api-tokens" style="color:var(--indigo);" target="_blank" rel="noopener">id.atlassian.com/manage-profile/security/api-tokens</a>. Click <strong>Create API token</strong>, give it a label (such as "DocCraft integration"), and copy the token value.</p>
+          <div class="callout callout-danger">
+            <div class="callout-title">Copy the token now</div>
+            <p>Atlassian shows the API token value only once. Copy it before closing the dialog. If you lose it, you must revoke the token and generate a new one.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Add the Confluence integration in DocCraft</div>
+          <p>In DocCraft, go to <strong>Settings → Integrations → Confluence</strong>. Fill in the three required fields:</p>
+          <ul>
+            <li><strong>Workspace URL</strong> — your Confluence base URL, for example <code>https://yourorg.atlassian.net</code>. Do not include a trailing slash or a space path.</li>
+            <li><strong>Account email</strong> — the email address on your Atlassian account. This is the account the API token belongs to.</li>
+            <li><strong>API token</strong> — paste the token you copied in step 1.</li>
+          </ul>
+          <p>Click <strong>Test connection</strong>. DocCraft makes a test call to the Confluence API to verify the credentials. A green success message confirms the connection is working.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Publish a document</div>
+          <p>Open the document you want to publish in the editor. Click <strong>Export → Publish to Confluence</strong>. A dialog prompts you to select:</p>
+          <ul>
+            <li><strong>Space</strong> — the Confluence space where the page will be created. DocCraft lists all spaces your account can write to.</li>
+            <li><strong>Parent page</strong> — the page the new document will be created under. Leave blank to create the page at the space root.</li>
+            <li><strong>Page title</strong> — defaults to the document title. Edit it here if you need a different title in Confluence.</li>
+          </ul>
+          <p>Click <strong>Publish</strong>. DocCraft converts the document to Confluence storage format and creates the page. A confirmation message with a direct link to the new Confluence page confirms success.</p>
+          <div class="callout callout-note">
+            <div class="callout-title">Updating an existing page</div>
+            <p>If you publish to a space and parent page where a page with the same title already exists, DocCraft creates a new version of that page — it does not create a duplicate. Confluence's version history tracks the previous versions. To publish to a specific existing page by ID instead of title, use the <strong>Page ID</strong> option in the advanced publish settings.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── WORKFLOW 5 ─── -->
+  <section id="wf5">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin:0;">Apply a documentation template</h2>
+        <p style="color:var(--text-3);font-size:0.875rem;margin-top:0.4rem;">Restructure an existing document to match a preset template — without regenerating from source.</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+        <span class="badge badge-teal">3 min</span>
+        <span class="badge badge-indigo">Document Editor</span>
+      </div>
+    </div>
+
+    <div class="callout callout-tip">
+      <div class="callout-title">When to use templates</div>
+      <p>Templates are useful when you need documentation to conform to an internal style guide — for example, when all your API references must start with an overview, follow a specific authentication section format, and end with a support contact block. Templates enforce structure without changing the generated content.</p>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Open the template browser</div>
+          <p>With a document open in the editor, click <strong>Templates</strong> in the toolbar (the grid icon). The template browser opens in a side panel.</p>
+          <p>Templates are organized by document type — API Reference, README, User Guide, Admin Guide, and Release Notes. There are also industry-specific templates (for example, <em>Financial API Reference</em> or <em>Healthcare Integration Guide</em>) that include compliance callout sections.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Preview the template</div>
+          <p>Click any template to preview its section structure and a sample rendering. The preview shows the section order, default callout positions, and example content blocks so you can compare it to your current document structure before applying it.</p>
+          <p>If you have custom templates saved in your team's Template Library, they appear at the top of the list marked with a team badge.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Apply the template</div>
+          <p>Click <strong>Apply template</strong>. DocCraft maps your existing document sections to the template structure:</p>
+          <ul>
+            <li>Sections that match a template slot are placed in the corresponding position.</li>
+            <li>Sections that have no match are preserved at the end of the document in an <em>Uncategorized</em> group — you can drag them into position or delete them.</li>
+            <li>Template slots with no matching content are added as empty sections with placeholder headings — fill them in manually or use <strong>Regenerate Section</strong> to generate content.</li>
+          </ul>
+          <div class="callout callout-note">
+            <div class="callout-title">Applying a template is reversible</div>
+            <p>DocCraft saves a snapshot of your document before applying a template. If the result isn't what you expected, click <strong>Undo template</strong> in the toolbar to restore the previous structure. Undo is available until you navigate away from the document or export it.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="margin:2.5rem 0;border:none;border-top:1px solid var(--border);">
+
+  <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+    <div style="flex:1;min-width:220px;">
+      <div style="font-size:0.78rem;color:var(--text-4);margin-bottom:0.4rem;">Related</div>
+      <a href="ui-reference.html" style="font-size:0.875rem;font-weight:600;color:var(--indigo);text-decoration:none;">UI Reference — panels, controls, and settings →</a>
+    </div>
+    <div style="flex:1;min-width:220px;text-align:right;">
+      <div style="font-size:0.78rem;color:var(--text-4);margin-bottom:0.4rem;">Need more help?</div>
+      <a href="troubleshooting.html" style="font-size:0.875rem;font-weight:600;color:var(--indigo);text-decoration:none;">→ Troubleshooting Guide</a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">DocCraft<span>·</span>Help</div>
+      <p class="footer-desc">Help center for DocCraft AI — built by Sulagna Sasmal.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Guides</div>
+      <ul class="footer-links">
+        <li><a href="getting-started.html">Getting Started</a></li>
+        <li><a href="feature-generate.html">Features</a></li>
+        <li><a href="ui-reference.html">UI Reference</a></li>
+        <li><a href="workflows.html">Workflows</a></li>
+        <li><a href="troubleshooting.html">Troubleshooting</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">DocCraft</div>
+      <ul class="footer-links">
+        <li><a href="https://doccraft-ten.vercel.app/" target="_blank" rel="noopener">Open App ↗</a></li>
+        <li><a href="release-notes.html">What's New</a></li>
+        <li><a href="index.html">← Help Home</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom"><span class="footer-copyright">© 2025 DocCraft AI — Portfolio project by Sulagna Sasmal</span></div>
+</footer>
+
+<script src="assets/js/search.js"></script>
+</body>
+</html>
