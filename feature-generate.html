@@ -132,8 +132,108 @@
 
   <div class="callout callout-note">
     <div class="callout-title">Best practice</div>
-    <p>For highest-quality output: combine a well-structured OpenAPI spec (each endpoint with description + example values) + <strong>Custom Instructions</strong> specifying your audience, tone, and any product-specific conventions. This combination consistently outperforms either input alone.</p>
+    <p>For highest-quality output: combine well-structured source material + context documents (style guides, glossaries) + <strong>Custom Instructions</strong> specifying audience and tone. This combination consistently produces the best results.</p>
   </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── STREAMING ─── -->
+  <h2 id="streaming" style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;color:var(--text);margin:2rem 0 1rem;">🔴 Real-Time Streaming Generation</h2>
+  <p style="font-size:0.9rem;color:var(--text-2);line-height:1.85;margin-bottom:1rem;">DocCraft generates documents using server-sent events (SSE) streaming so you can watch the draft materialise token-by-token in a <strong>Live Draft</strong> pane during generation.</p>
+  <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;font-size:0.875rem;">
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Cancel Early</div>
+      <div style="color:var(--text-2);">Click <strong>Cancel</strong> during streaming to stop generation. The partial draft is preserved and opens in the editor, so you never lose what the AI has already written.</div>
+    </div>
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Timeout Handling</div>
+      <div style="color:var(--text-2);">If the server hits the 55-second timeout, the partial document is still saved. A clear error message tells you exactly what happened and lets you continue editing the partial draft.</div>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── VERSION DIFF ─── -->
+  <h2 id="version-diff" style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;color:var(--text);margin:2rem 0 1rem;">📊 Version Diffing (Side-by-Side Comparison)</h2>
+  <p style="font-size:0.9rem;color:var(--text-2);line-height:1.85;margin-bottom:1rem;">Compare your current draft against the original baseline or any saved snapshot. The Version Diff panel displays a line-by-line comparison with colour-coded change indicators.</p>
+  <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2rem;font-size:0.875rem;">
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">How to open</div>
+      <div style="color:var(--text-2);">In the Document Editor toolbar, click the <strong>Version Diff</strong> button (GitCompare icon). A side-by-side panel appears below the editor.</div>
+    </div>
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Compare against</div>
+      <div style="color:var(--text-2);">Use the dropdown to select any saved version — the initial generation baseline, or any snapshot you've saved using the <strong>Save Snapshot</strong> button. The changed-line count updates in real time.</div>
+    </div>
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Change types</div>
+      <div style="color:var(--text-2);"><strong style="color:var(--accent-green);">Added</strong> (green) · <strong style="color:var(--accent-red);">Removed</strong> (red) · <strong style="color:var(--amber);">Changed</strong> (amber) — only lines that differ are highlighted. Same lines are dimmed.</div>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── CUSTOM COMPLIANCE ─── -->
+  <h2 id="compliance-rules" style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;color:var(--text);margin:2rem 0 1rem;">🛡️ Custom Compliance Rules</h2>
+  <p style="font-size:0.9rem;color:var(--text-2);line-height:1.85;margin-bottom:1rem;">DocCraft ships with built-in MSTP (Microsoft Style Guide) compliance checks. With Custom Compliance Rules, you can layer your own governance policies on top.</p>
+  <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;font-size:0.875rem;">
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Create a rule</div>
+      <div style="color:var(--text-2);">Click <strong>Custom Rules</strong> (ShieldPlus icon) in the toolbar. Fill in: Rule name, Instruction (what the rule enforces), Severity (error / warning / suggestion), Trigger terms (comma-separated), and optional Replacement text.</div>
+    </div>
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Persistence</div>
+      <div style="color:var(--text-2);">Rules are saved in your browser's local storage so they persist across sessions. They're automatically included when you run a compliance check.</div>
+    </div>
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Example rules</div>
+      <div style="color:var(--text-2);"><em>"Forbidden term"</em> — flag any use of internal codenames. <em>"Required phrase"</em> — ensure every document includes a legal disclaimer. <em>"Tone enforcement"</em> — warn when passive voice exceeds a threshold.</div>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── CI/CD WEBHOOKS ─── -->
+  <h2 id="ci-webhooks" style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;color:var(--text);margin:2rem 0 1rem;">🔗 CI/CD Webhook Automation</h2>
+  <p style="font-size:0.9rem;color:var(--text-2);line-height:1.85;margin-bottom:1rem;">Trigger automatic documentation generation when code is pushed to your repository. DocCraft exposes a webhook endpoint that integrates with GitHub Actions, GitLab CI, Jenkins, or any HTTP-capable CI pipeline.</p>
+  <div style="display:flex;flex-direction:column;gap:0.75rem;margin-bottom:1.5rem;font-size:0.875rem;">
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Endpoint</div>
+      <div style="color:var(--text-2);"><code>POST /api/webhooks/ci</code> — include your <code>DOCCRAFT_WEBHOOK_SECRET</code> in the <code>x-doccraft-secret</code> header or as a Bearer token.</div>
+    </div>
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Payload</div>
+      <div style="color:var(--text-2);">Send a JSON body with: <code>repositoryUrl</code> (required), <code>branch</code>, <code>changedFiles</code> (array), <code>docType</code>, <code>audience</code>, <code>tone</code>, and optional <code>customRules</code>. Native GitHub push payloads are also accepted.</div>
+    </div>
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">Response</div>
+      <div style="color:var(--text-2);">Returns a JSON object with the generated document, repo metadata, and source file list. Optionally set <code>publishToGithub: true</code> with a <code>githubToken</code> to auto-commit the result.</div>
+    </div>
+    <div style="display:flex;gap:1rem;padding:0.75rem 1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);">
+      <div style="font-weight:700;color:var(--text);min-width:140px;">GitHub Actions</div>
+      <div style="color:var(--text-2);">Example step: <code>curl -X POST https://doccraft-ten.vercel.app/api/webhooks/ci -H "x-doccraft-secret: $SECRET" -d '{"repositoryUrl":"...", "docType":"release-notes"}'</code></div>
+    </div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── AI REFINE ─── -->
+  <h2 id="ai-refine" style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;color:var(--text);margin:2rem 0 1rem;">✨ AI-Powered Refinement</h2>
+  <p style="font-size:0.9rem;color:var(--text-2);line-height:1.85;margin-bottom:1rem;">Select any text in the editor and apply one-click AI actions to transform it:</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.75rem;margin-bottom:2rem;font-size:0.85rem;">
+    <div style="text-align:center;padding:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);"><div style="font-weight:700;color:var(--text);margin-bottom:0.25rem;">Simplify</div><p style="color:var(--text-2);font-size:0.78rem;">Rewrite in simpler language</p></div>
+    <div style="text-align:center;padding:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);"><div style="font-weight:700;color:var(--text);margin-bottom:0.25rem;">Expand</div><p style="color:var(--text-2);font-size:0.78rem;">Add more detail and depth</p></div>
+    <div style="text-align:center;padding:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);"><div style="font-weight:700;color:var(--text);margin-bottom:0.25rem;">Add Example</div><p style="color:var(--text-2);font-size:0.78rem;">Insert a practical example</p></div>
+    <div style="text-align:center;padding:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);"><div style="font-weight:700;color:var(--text);margin-bottom:0.25rem;">Troubleshoot</div><p style="color:var(--text-2);font-size:0.78rem;">Add troubleshooting steps</p></div>
+    <div style="text-align:center;padding:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);"><div style="font-weight:700;color:var(--text);margin-bottom:0.25rem;">Make Concise</div><p style="color:var(--text-2);font-size:0.78rem;">Remove fluff, keep substance</p></div>
+    <div style="text-align:center;padding:1rem;background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);"><div style="font-weight:700;color:var(--text);margin-bottom:0.25rem;">Diagrams</div><p style="color:var(--text-2);font-size:0.78rem;">Generate Mermaid diagrams</p></div>
+  </div>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── GITHUB PUBLISH ─── -->
+  <h2 id="github-publish" style="font-family:var(--font-display);font-size:1.35rem;font-weight:800;color:var(--text);margin:2rem 0 1rem;">🐙 GitHub Publishing</h2>
+  <p style="font-size:0.9rem;color:var(--text-2);line-height:1.85;margin-bottom:1rem;">Publish your generated document directly to a GitHub repository. From the editor toolbar, click <strong>Publish</strong>, enter your GitHub repository URL and personal access token, then commit the document. DocCraft creates a clean commit with the generated Markdown.</p>
 
 </div>
 

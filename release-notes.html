@@ -37,12 +37,55 @@
 
   <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin:0.5rem 0 2rem;">Release Notes</h1>
 
+  <!-- v2.0.0 -->
+  <div class="release-item">
+    <div class="release-meta">
+      <div class="release-version">v2.0.0</div>
+      <div class="release-date">Mar 17, 2026</div>
+      <div style="margin-top:0.5rem;"><span class="badge badge-indigo">Latest</span></div>
+    </div>
+    <div class="release-body">
+      <div class="release-section-title release-section-new">✨ New Features</div>
+      <ul>
+        <li><strong>Real-time Streaming Generation</strong> — Document generation now streams token-by-token. Watch your draft appear live in the editor as the AI writes it. Includes a cancel button to stop early and keep the partial draft.</li>
+        <li><strong>Version Diffing (Side-by-Side Comparison)</strong> — Compare your current draft against any saved version or the original baseline. Uses a full side-by-side diff view with line-level change highlighting (added, removed, and changed lines).</li>
+        <li><strong>Custom Compliance Rules</strong> — Create your own governance rules beyond the built-in MSTP checks. Define rule name, instruction, severity (error/warning/suggestion), trigger terms, and replacement text. Rules are saved locally and applied during compliance analysis.</li>
+        <li><strong>CI/CD Webhook Automation</strong> — Trigger automatic documentation generation when code is pushed. Send a POST request from GitHub Actions, GitLab CI, or any CI pipeline to <code>/api/webhooks/ci</code> with your repo URL and changed files. DocCraft fetches the repo context and generates docs automatically.</li>
+        <li><strong>AI-Powered Gap Analysis</strong> — Before generation, DocCraft analyzes your source material and identifies 5–12 specific gaps, ambiguities, and assumptions. Answer the questions to produce more accurate documentation.</li>
+        <li><strong>Smart Format Recommendation</strong> — DocCraft auto-detects the best document type for your input and suggests it with a confidence score. Accept the suggestion with one click.</li>
+        <li><strong>In-App Help Center Link</strong> — A help icon in the header provides quick access to this help center from anywhere in the app.</li>
+        <li><strong>GitHub Publishing</strong> — Publish generated documents directly to a GitHub repository as a commit or pull request.</li>
+        <li><strong>Team Workspaces</strong> — Collaborate with team members on shared documentation projects via Supabase-backed team workspaces.</li>
+        <li><strong>Cloud Save</strong> — Save documents to the cloud with your Supabase account. Access them from any device.</li>
+        <li><strong>Diagram Generation</strong> — Auto-generate Mermaid diagrams from your documentation content.</li>
+        <li><strong>Infographic Generation</strong> — Create visual infographics from document content using AI.</li>
+        <li><strong>Document Snapshots</strong> — Save point-in-time snapshots of your draft during editing. Restore any snapshot from the history panel.</li>
+      </ul>
+      <div class="release-section-title release-section-improved">⬆️ Improvements</div>
+      <ul>
+        <li>All AI routes migrated to Edge Runtime for faster response times (25s limit vs 10s on serverless).</li>
+        <li>Switched heavy routes to gpt-4o-mini for lower latency and cost without quality loss.</li>
+        <li>Safe response parsing prevents crashes from empty or malformed API responses.</li>
+        <li>Timeout handling with AbortController shows clear error messages instead of hanging.</li>
+        <li>Auth is fully optional — core features (analyze, generate, export) work without sign-in. Sign-in unlocks cloud save, teams, and GitHub publishing.</li>
+        <li>Context documents and terminology glossary can be uploaded alongside source material for more accurate generation.</li>
+        <li>DOCX export support added alongside Markdown and HTML.</li>
+      </ul>
+      <div class="release-section-title release-section-fixed">🐛 Bug Fixes</div>
+      <ul>
+        <li>Fixed: "Unexpected end of JSON input" crash on empty API responses.</li>
+        <li>Fixed: Broken icon import (CloudCheck → CloudUpload) in DocumentEditor.</li>
+        <li>Fixed: TypeScript build error from possibly undefined response data in infographic route.</li>
+        <li>Fixed: Supabase initialization interfered with static generation during build.</li>
+      </ul>
+    </div>
+  </div>
+
   <!-- v1.4.0 -->
   <div class="release-item">
     <div class="release-meta">
       <div class="release-version">v1.4.0</div>
       <div class="release-date">Feb 10, 2025</div>
-      <div style="margin-top:0.5rem;"><span class="badge badge-indigo">Latest</span></div>
     </div>
     <div class="release-body">
       <div class="release-section-title release-section-new">✨ New Features</div>

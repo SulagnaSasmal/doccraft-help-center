@@ -37,7 +37,7 @@
   </div>
 
   <h1 style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--text);letter-spacing:-0.025em;margin:0.5rem 0 0.5rem;">Workflow Guides</h1>
-  <p style="color:var(--text-3);font-size:0.875rem;margin-bottom:0.5rem;">Last updated: March 2025</p>
+  <p style="color:var(--text-3);font-size:0.875rem;margin-bottom:0.5rem;">Last updated: March 2026</p>
   <p style="color:var(--text-2);font-size:0.95rem;line-height:1.85;margin-bottom:2.5rem;">Task-based guides for the most common DocCraft workflows. Each guide is self-contained — follow the steps in order, and you'll have a working result by the final step.</p>
 
   <!-- Workflow index -->
@@ -49,6 +49,9 @@
       <li style="font-size:0.85rem;"><a href="#wf3" style="color:var(--indigo);text-decoration:none;">Regenerate and iterate on a section</a></li>
       <li style="font-size:0.85rem;"><a href="#wf4" style="color:var(--indigo);text-decoration:none;">Export and publish to Confluence</a></li>
       <li style="font-size:0.85rem;"><a href="#wf5" style="color:var(--indigo);text-decoration:none;">Apply a documentation template</a></li>
+      <li style="font-size:0.85rem;"><a href="#wf6" style="color:var(--indigo);text-decoration:none;">Auto-generate docs via CI/CD webhook</a></li>
+      <li style="font-size:0.85rem;"><a href="#wf7" style="color:var(--indigo);text-decoration:none;">Compare versions with side-by-side diff</a></li>
+      <li style="font-size:0.85rem;"><a href="#wf8" style="color:var(--indigo);text-decoration:none;">Add custom compliance rules</a></li>
     </ol>
   </div>
 
@@ -430,6 +433,150 @@ Change all references from "the user" to "you".</div>
             <div class="callout-title">Applying a template is reversible</div>
             <p>DocCraft saves a snapshot of your document before applying a template. If the result isn't what you expected, click <strong>Undo template</strong> in the toolbar to restore the previous structure. Undo is available until you navigate away from the document or export it.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── WORKFLOW 6: CI/CD WEBHOOK ─── -->
+  <section id="wf6">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin:0;">Auto-generate docs via CI/CD webhook</h2>
+        <p style="color:var(--text-3);font-size:0.875rem;margin-top:0.4rem;">Trigger automatic documentation generation every time code is pushed.</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+        <span class="badge badge-teal">10 min setup</span>
+        <span class="badge badge-purple">Automation</span>
+      </div>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Set up your webhook secret</div>
+          <p>Add <code>DOCCRAFT_WEBHOOK_SECRET</code> to your Vercel environment variables (or <code>.env.local</code> for local development). This secret authenticates incoming webhook requests.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Add a CI step to your pipeline</div>
+          <p>In your GitHub Actions workflow (or any CI tool), add a step that posts to the webhook endpoint after a successful build or push:</p>
+          <div class="code-block">curl -X POST https://doccraft-ten.vercel.app/api/webhooks/ci \
+  -H "Content-Type: application/json" \
+  -H "x-doccraft-secret: $DOCCRAFT_WEBHOOK_SECRET" \
+  -d '{
+    "repositoryUrl": "https://github.com/your-org/your-repo",
+    "branch": "main",
+    "docType": "release-notes",
+    "audience": "mixed",
+    "tone": "instructional"
+  }'</div>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Receive the generated document</div>
+          <p>The webhook returns a JSON response containing the generated document, repo metadata, and source file list. Optionally include <code>"publishToGithub": true</code> with a <code>githubToken</code> to auto-commit the output back to the repository.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── WORKFLOW 7: VERSION DIFF ─── -->
+  <section id="wf7">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin:0;">Compare versions with side-by-side diff</h2>
+        <p style="color:var(--text-3);font-size:0.875rem;margin-top:0.4rem;">See exactly what changed between your original draft and the current version.</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+        <span class="badge badge-teal">1 min</span>
+        <span class="badge badge-indigo">Document Editor</span>
+      </div>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Save a snapshot (optional)</div>
+          <p>Before making edits, click <strong>Save Snapshot</strong> in the editor toolbar. This saves the current state so you can compare against it later. The initial generation baseline is always available automatically.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Open the Version Diff panel</div>
+          <p>Click the <strong>Version Diff</strong> button (GitCompare icon) in the editor toolbar. A side-by-side comparison panel appears below the editor.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Select a version to compare against</div>
+          <p>Use the dropdown to choose any saved version — the original baseline or any snapshot. The diff highlights added lines (green), removed lines (red), and changed lines (amber). A badge shows the total number of changed lines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr style="border:none;border-top:1px solid var(--border);margin:3rem 0;">
+
+  <!-- ─── WORKFLOW 8: CUSTOM COMPLIANCE ─── -->
+  <section id="wf8">
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:0.75rem;margin-bottom:1.5rem;">
+      <div>
+        <h2 style="font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:var(--text);letter-spacing:-0.02em;margin:0;">Add custom compliance rules</h2>
+        <p style="color:var(--text-3);font-size:0.875rem;margin-top:0.4rem;">Create your own governance checks beyond the built-in MSTP compliance.</p>
+      </div>
+      <div style="display:flex;gap:0.5rem;flex-shrink:0;">
+        <span class="badge badge-teal">3 min</span>
+        <span class="badge badge-indigo">Compliance</span>
+      </div>
+    </div>
+
+    <div class="step-list">
+      <div class="step-item">
+        <div class="step-badge">1</div>
+        <div class="step-body">
+          <div class="step-title">Open the Custom Rules panel</div>
+          <p>In the Document Editor, click the <strong>Custom Rules</strong> button (ShieldPlus icon) in the toolbar.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">2</div>
+        <div class="step-body">
+          <div class="step-title">Define your rule</div>
+          <p>Fill in the rule fields:</p>
+          <ul>
+            <li><strong>Rule name</strong> — e.g., "Forbidden internal codename"</li>
+            <li><strong>Instruction</strong> — What the rule enforces, e.g., "Flag any mention of Project Phoenix"</li>
+            <li><strong>Severity</strong> — Error, Warning, or Suggestion</li>
+            <li><strong>Trigger terms</strong> — Comma-separated terms that trigger the rule</li>
+            <li><strong>Replacement</strong> — (Optional) Suggested replacement text</li>
+          </ul>
+          <p>Click <strong>Add Rule</strong>. Rules are saved in your browser and persist across sessions.</p>
+        </div>
+      </div>
+
+      <div class="step-item">
+        <div class="step-badge">3</div>
+        <div class="step-body">
+          <div class="step-title">Run compliance check</div>
+          <p>Click the <strong>Compliance Check</strong> button (ShieldCheck icon). Your custom rules are applied alongside the built-in MSTP checks. Results show each issue with its severity and the line where it was found.</p>
         </div>
       </div>
     </div>
